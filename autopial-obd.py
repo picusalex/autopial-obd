@@ -65,8 +65,8 @@ if __name__ == '__main__':
         logger.error("Invalid config file: {}".format(e))
         sys.exit(1)
 
-    if not os.path.isfile(port):
-        logger.error("Specified OBD port '{}' does not exists !")
+    if not os.path.exists(port):
+        logger.error("Specified OBD port '{}' does not exists !".format(port))
         sys.exit(1)
 
     obd_connection = obd.OBD(portstr=port, baudrate=baudrate, timeout=1)
